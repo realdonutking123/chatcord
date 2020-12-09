@@ -55,7 +55,7 @@ function outputMessage(message) {
   div.classList.add('message');
   const p = document.createElement('p');
   p.classList.add('meta');
-  p.innerText = message.username;
+  p.innerText = message.username + " ";
   p.innerHTML += `<span>${message.time}</span>`;
   div.appendChild(p);
   const para = document.createElement('p');
@@ -79,3 +79,9 @@ function outputUsers(users) {
     userList.appendChild(li);
   });
  }
+
+function switch_style() {
+    var stylething = document.getElementById("theme");
+    var csslist = ["default", "kara", "alejandro", "robbie"]
+    stylething.href = css + ".css"
+}
