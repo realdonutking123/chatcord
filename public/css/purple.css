@@ -3,9 +3,10 @@
 :root {
 	--dark-color-a: #b10adb;
 	--dark-color-b: #de73ff;
-	--light-color: #e6e9ff;
+	--light-color: #ffe6ff;
 	--success-color: #5cb85c;
 	--error-color: #d9534f;
+  --bg-color: #333333;
 }
 
 * {
@@ -17,7 +18,7 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
-	background: var(--light-color);
+	background: var(--bg-color);
 	margin: 20px;
 }
 
@@ -36,6 +37,16 @@ a {
 	color: var(--dark-color-a);
 	border: 0;
 	font-size: 17px;
+}
+
+.btn-small {
+	cursor: pointer;
+	padding: 5px 15px;
+	background: var(--light-color);
+	color: var(--dark-color-a);
+	border: 0;
+	font-size: 13px;
+  margin-top: 5px;
 }
 
 /* Chat Page */
@@ -167,11 +178,11 @@ a {
 	width: 100%;
 }
 
-.join-main select {
-	font-size: 16px;
-	padding: 5px;
-	height: 40px;
-	width: 100%;
+select {
+	font-size: 12px;
+	padding: 4px;
+	height: 30px;
+	width: 30%;
 }
 
 .join-main .btn {

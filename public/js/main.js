@@ -10,6 +10,8 @@ const { username, room } = Qs.parse(location.search, {
 
 const socket = io();
 
+
+
 // Join chatroom
 socket.emit('joinRoom', { username, room });
 
@@ -55,7 +57,7 @@ function outputMessage(message) {
   div.classList.add('message');
   const p = document.createElement('p');
   p.classList.add('meta');
-  p.innerText = message.username + " ";
+  p.innerHTML = message.username + " ";
   p.innerHTML += `<span>${message.time}</span>`;
   div.appendChild(p);
   const para = document.createElement('p');
@@ -67,7 +69,27 @@ function outputMessage(message) {
 
 // Add room name to DOM
 function outputRoomName(room) {
-  roomName.innerText = room;
+  switch (room) {
+    case "Homework":
+      roomName.innerHTML = "<i class='fas fa-book-open'></i> " + room;
+      break;
+    case "Programming":
+    case "WEEBCHAT Development":
+      roomName.innerHTML = "<i class='fas fa-code'></i> " + room;
+      break;
+    case "Games":
+      roomName.innerHTML = "<i class='fas fa-gamepad'></i> " + room;
+      break;
+    case "Hanging Out":
+      roomName.innerHTML = "<i class='fas fa-comment-dots'></i> " + room;
+      break;
+    case "Anime":
+      roomName.innerHTML = "<i class='fas fa-tv'></i> " + room;
+      break;
+    default:
+      roomName.innerText = room;
+  }
+  document.title = room + " | WEEBCHAT"
 }
 
 // Add users to DOM
@@ -80,8 +102,7 @@ function outputUsers(users) {
   });
  }
 
-function switch_style() {
-    var stylething = document.getElementById("theme");
-    var csslist = ["default", "kara", "alejandro", "robbie"]
-    stylething.href = css + ".css"
+// Change css theme
+function switch_style(css) {
+  document.getElementById("theme").href = "css/" + css + ".css";
 }
